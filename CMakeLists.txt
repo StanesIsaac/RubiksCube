@@ -3,4 +3,5 @@ project(RubiksCube)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(RubiksCube main.cpp)
+add_executable(RubiksCube main.cpp
+        RubiksCube.h)
