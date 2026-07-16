@@ -10,8 +10,10 @@ using namespace std;
 
 class RubiksCube {
     public:
+    virtual ~RubiksCube() = default;
+
     enum class FACE {
-        UP,DOWN,LEFT,RIGHT,FRONT,BACK
+        UP,LEFT,FRONT,RIGHT,BACK,DOWN
     };
     enum class COLOR {
         WHITE,GREEN,RED,BLUE,ORANGE,YELLOW
@@ -25,6 +27,7 @@ class RubiksCube {
     virtual bool isSolved() const=0; // to check if the cube is solved
     void print()const; // to print the cube
     vector<MOVE> randomShuffleCube(unsigned int time); // to randomly shuffle the cube
+    static char getColorLetter(COLOR c);
 
     virtual RubiksCube& l() = 0;
     virtual RubiksCube& r() = 0;
