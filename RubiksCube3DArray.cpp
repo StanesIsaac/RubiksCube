@@ -65,10 +65,25 @@ public:
     }
 
     RubiksCube & u() override {
+        char temp_arr[3] = {};
+        for (int col = 0; col < 3; col++) temp_arr[col] = cube[4][0][col];
+        for (int col = 0; col < 3; col++) cube[4][0][col] = cube[1][0][col];
+        for (int col = 0; col < 3; col++) cube[1][0][col] = cube[2][0][col];
+        for (int col = 0; col < 3; col++) cube[2][0][col] = cube[3][0][col];
+        for (int col = 0; col < 3; col++) cube[3][0][col] = temp_arr[col];
+
+        this->rotateFaceClockwise(0);
         return *this;
     }
 
     RubiksCube & d() override {
+        char temp_arr[3] = {};
+        for (int col = 0; col < 3; col++) temp_arr[col] = cube[2][2][col];
+        for (int col = 0; col < 3; col++) cube[2][2][col] = cube[1][2][col];
+        for (int col = 0; col < 3; col++) cube[1][2][col] = cube[4][2][col];
+        for (int col = 0; col < 3; col++) cube[4][2][col] = cube[3][2][col];
+        for (int col = 0; col < 3; col++) cube[3][2][col] = temp_arr[col];
+        this->rotateFaceClockwise(5);
         return *this;
     }
 
@@ -76,23 +91,23 @@ public:
         return *this;
     }
 
-    RubiksCube & b() {
+    RubiksCube & b() override{
         return *this;
     }
 
-    RubiksCube & l2() {
+    RubiksCube & l2() override {
         return *this;
     }
 
-    RubiksCube & r2() {
+    RubiksCube & r2() override{
         return *this;
     }
 
-    RubiksCube & u2() {
+    RubiksCube & u2() override{
         return *this;
     }
 
-    RubiksCube & d2() {
+    RubiksCube & d2() override{
         return *this;
     }
 
