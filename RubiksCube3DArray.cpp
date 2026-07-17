@@ -2,7 +2,6 @@
 
 class RubiksCube3DArray : public RubiksCube {
 private:
-    char cube[6][3][3]{};
 
     void rotateFaceClockwise(const int face) {
         // transposing the matrix
@@ -18,7 +17,7 @@ private:
     }
 
 public:
-
+    char cube[6][3][3]{};
     RubiksCube3DArray() {
         for (int face = 0; face < 6; face++) {
             for (int row = 0; row < 3; row++) {
@@ -180,4 +179,40 @@ public:
         this->b();
         return *this;
     }
+    bool operator==(const RubiksCube3DArray &r1) const {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    if (r1.cube[i][j][k] != cube[i][j][k]) return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    RubiksCube3DArray &operator=(const RubiksCube3DArray &r1) {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    cube[i][j][k] = r1.cube[i][j][k];
+                }
+            }
+        }
+        return *this;
+    }
+};
+
+struct Hash3d {
+    size_t operator()(const RubiksCube3DArray &r1) const {
+        string str = "";
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    str += r1.cube[i][j][k];
+                }
+            }
+        }
+        return hash<string>()(str);
+    }
+
 };
