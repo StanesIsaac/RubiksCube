@@ -111,26 +111,38 @@ public:
     }
 
     RubiksCube & l2() override {
+        this->l();
+        this->l();
         return *this;
     }
 
     RubiksCube & r2() override{
+        this->r();
+        this->r();
         return *this;
     }
 
     RubiksCube & u2() override{
+        this->u();
+        this->u();
         return *this;
     }
 
     RubiksCube & d2() override{
+        this->d();
+        this->d();
         return *this;
     }
 
     RubiksCube & f2() override {
+        this->f();
+        this->f();
         return *this;
     }
 
     RubiksCube & b2() override {
+        this->b();
+        this->b();
         return *this;
     }
 
