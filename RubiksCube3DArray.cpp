@@ -147,22 +147,37 @@ public:
     }
 
     RubiksCube & lPrime() override {
+        this->l();
+        this->l();
+        this->l();
         return *this;
     }
 
     RubiksCube & rPrime() override {
+        this->r();
+        this->r();
+        this->r();
         return *this;
     }
 
     RubiksCube & uPrime() override {
+        this->u();
+        this->u();
+        this->u();
         return *this;
     }
 
     RubiksCube & dPrime() override {
+        this->d();
+        this->d();
+        this->d();
         return *this;
     }
 
     RubiksCube & bPrime() override {
+        this->b();
+        this->b();
+        this->b();
         return *this;
     }
 };
