@@ -88,10 +88,25 @@ public:
     }
 
     RubiksCube & f() override {
+        char temp_arr[3] = {};
+        for (int col = 0; col < 3; col++) temp_arr[col] = cube[0][2][col];
+        for (int col = 0; col < 3; col++) cube[0][2][col] = cube[1][2 - col][2];
+        for (int col = 0; col < 3; col++) cube[1][2 - col][2] = cube[5][0][2 - col];
+        for (int col = 0; col < 3; col++) cube[5][0][2 - col] = cube[3][col][0];
+        for (int col = 0; col < 3; col++) cube[3][col][0] = temp_arr[col];
+        this->rotateFaceClockwise(2);
         return *this;
     }
 
     RubiksCube & b() override{
+        char temp_arr[3] = {};
+        for (int i = 0; i < 3; i++) temp_arr[i] = cube[0][0][2 - i];
+        for (int i = 0; i < 3; i++) cube[0][0][2 - i] = cube[3][2 - i][2];
+        for (int i = 0; i < 3; i++) cube[3][2 - i][2] = cube[5][2][i];
+        for (int i = 0; i < 3; i++) cube[5][2][i] = cube[1][i][0];
+        for (int i = 0; i < 3; i++) cube[1][i][0] = temp_arr[i];
+
+        this->rotateFaceClockwise(4);
         return *this;
     }
 
