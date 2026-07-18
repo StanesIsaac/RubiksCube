@@ -12,5 +12,6 @@ int main() {
     cb.l();
     cb.l();
     cb.l();
-    cout<<cb.isSolved();
+    cout<<cb.isSolved()<<'\n';
+    cb.print();
 }

@@ -2,7 +2,6 @@
 
 class RubiksCube3DArray : public RubiksCube {
 private:
-
     void rotateFaceClockwise(const int face) {
         // transposing the matrix
         for (int row=0;row<3;row++) {
@@ -39,6 +38,24 @@ public:
             }
         }
         return true;
+    }
+
+    COLOR getColor(FACE face,int row,int col) const override {
+        char c = cube[int(face)][row][col];
+        switch (c) {
+            case 'R':
+                return COLOR::RED;
+            case 'B':
+                return COLOR::BLUE;
+            case 'Y':
+                return COLOR::YELLOW;
+            case 'G':
+                return COLOR::GREEN;
+            case 'W':
+                return COLOR::WHITE;
+            default:
+                return COLOR::ORANGE;
+        }
     }
 
     RubiksCube & l() override {

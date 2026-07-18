@@ -28,6 +28,7 @@ class RubiksCube {
     void print()const; // to print the cube
     vector<MOVE> randomShuffleCube(unsigned int time); // to randomly shuffle the cube
     static char getColorLetter(COLOR c);
+    virtual COLOR getColor(FACE face,int row,int col) const = 0;
 
     virtual RubiksCube& l() = 0;
     virtual RubiksCube& r() = 0;
