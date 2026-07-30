@@ -29,6 +29,9 @@ class RubiksCube {
     vector<MOVE> randomShuffleCube(unsigned int time); // to randomly shuffle the cube
     static char getColorLetter(COLOR c);
     virtual COLOR getColor(FACE face,int row,int col) const = 0;
+    RubiksCube& move(MOVE m);
+    RubiksCube& revert(MOVE m);
+    static string getMove(MOVE m);
 
     virtual RubiksCube& l() = 0;
     virtual RubiksCube& r() = 0;
@@ -49,6 +52,7 @@ class RubiksCube {
     virtual RubiksCube& uPrime() = 0;
     virtual RubiksCube& dPrime() = 0;
     virtual RubiksCube& bPrime() = 0;
+    virtual RubiksCube& fPrime() = 0;
 };
 
 #endif //RUBIKSCUBE_RUBIKSCUBE_H

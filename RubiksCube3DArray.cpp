@@ -196,6 +196,13 @@ public:
         this->b();
         return *this;
     }
+
+    RubiksCube& fPrime() override {
+        this->f();
+        this->f();
+        this->f();
+        return *this;
+    }
     bool operator==(const RubiksCube3DArray &r1) const {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
