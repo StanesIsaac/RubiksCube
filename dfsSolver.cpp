@@ -4,13 +4,12 @@
 
 #include<bits/stdc++.h>
 #include "RubiksCube.h"
-#ifndef DFS_SOLVER_H
-#define DFS_SOLVER_H
+#ifndef DFS_SOLVER
+#define DFS_SOLVER
 
 template<typename T>
 class DfsSolver {
 private:
-    T cube;
     int maxDepth;
     bool dfs(int depth) {
         if (cube.isSolved()) {return true;}
@@ -27,6 +26,7 @@ private:
         return false;
     }
 public:
+    T cube;
     vector<RubiksCube::MOVE> moves;
     DfsSolver(T cube, int maxDepth = 8):cube(cube) ,maxDepth(maxDepth) {
     }

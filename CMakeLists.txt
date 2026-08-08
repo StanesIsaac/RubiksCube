@@ -7,4 +7,6 @@ add_executable(RubiksCube main.cpp
         RubiksCube.h
         RubiksCube3DArray.cpp
         RubiksCube.cpp
-        dfsSolver.cpp)
+        dfsSolver.cpp
+        IDDFSsolver.cpp
+        bfsSolver.cpp)
